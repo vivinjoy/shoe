@@ -136,6 +136,28 @@ Then open up `localhost:9999` in your browser and you should see:
 beep => BOOP
 ```
 
+with express or connect
+-----------------------
+
+you must pass the return value of `app.listen(port)`
+
+``` js
+var shoe = require('shoe');
+
+var express = require('express')
+var app = express()
+
+var sock = shoe(function (stream) { ... });
+
+// *** must pass expcess/connect apps like this:
+sock.install(app.listen(9999), '/dnode');
+```
+
+Then open up `localhost:9999` in your browser and you should see:
+
+
+```
+
 browser methods
 ===============
 
