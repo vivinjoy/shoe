@@ -1,6 +1,6 @@
 {
     "name" : "shoe",
-    "version" : "0.0.4",
+    "version" : "0.0.5",
     "description" : "streaming sockjs for node and the browser",
     "main" : "index.js",
     "browserify" : "browser.js",
@@ -8,7 +8,7 @@
         "example" : "example"
     },
     "dependencies" : {
-        "sockjs" : "~0.3.1",
+        "sockjs-windows" : "~0.3.1",
         "sockjs-client" : "git://github.com/substack/sockjs-client.git#browserify-npm"
     },
     "repository" : {

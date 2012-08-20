@@ -1,4 +1,4 @@
-var sockjs = require('sockjs');
+var sockjs = require('sockjs-windows');
 
 exports = module.exports = function (opts, cb) {
     if (typeof opts === 'function') {
