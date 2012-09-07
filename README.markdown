@@ -153,11 +153,6 @@ var sock = shoe(function (stream) { ... });
 sock.install(app.listen(9999), '/dnode');
 ```
 
-Then open up `localhost:9999` in your browser and you should see:
-
-
-```
-
 browser methods
 ===============
 
