@@ -19,13 +19,14 @@ module.exports = function (uri, cb) {
     var ready = false;
     var buffer = [];
     
-    var sock = sockjs(uri);
+    var sock = sockjs.create(uri);
     stream.sock = sock;
     
     stream.write = function (msg) {
         if (!ready || buffer.length) buffer.push(msg)
         else sock.send(msg)
     };
+    
     stream.end = function (msg) {
         if (msg !== undefined) stream.write(msg);
         if (!ready) {
@@ -35,13 +36,13 @@ module.exports = function (uri, cb) {
         stream.writable = false;
         sock.close();
     };
-
+    
     stream.destroy = function () {
         stream._ended = true;
         stream.writable = stream.readable = false;
         buffer.length = 0
         sock.close();
-    }
+    };
     
     sock.onopen = function () {
         if (typeof cb === 'function') cb();
@@ -53,9 +54,11 @@ module.exports = function (uri, cb) {
         stream.emit('connect')
         if (stream._ended) stream.end();
     };
+    
     sock.onmessage = function (e) {
         stream.emit('data', e.data);
     };
+    
     sock.onclose = function () {
         stream.emit('end');
         stream.writable = false;
