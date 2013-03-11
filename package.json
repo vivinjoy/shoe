@@ -1,6 +1,6 @@
 {
     "name" : "shoe",
-    "version" : "0.0.8",
+    "version" : "0.0.9",
     "description" : "streaming sockjs for node and the browser",
     "main" : "index.js",
     "browserify" : "browser.js",
