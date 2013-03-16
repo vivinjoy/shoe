@@ -19,7 +19,7 @@ module.exports = function (uri, cb) {
     var ready = false;
     var buffer = [];
     
-    var sock = sockjs.create(uri);
+    var sock = sockjs(uri);
     stream.sock = sock;
     
     stream.write = function (msg) {
