@@ -1,7 +1,8 @@
 var shoe = require('../');
 var test = require('tape');
+var through = require('through');
 
-test('round-trip', function () {
+test('round-trip', function (t) {
     t.plan(1);
     
     var stream = shoe('/sock');

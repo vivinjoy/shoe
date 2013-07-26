@@ -54,6 +54,6 @@ exports = module.exports = function (opts, cb) {
     return server;
 };
 
-Object.keys(sockjs).forEach(function (key) {
+for (var key in sockjs) {
     exports[key] = sockjs[key];
-});
+}

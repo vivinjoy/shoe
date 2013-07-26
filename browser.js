@@ -1,16 +1,9 @@
 var Stream = require('stream');
 var sockjs = require('sockjs-client');
+var resolve = require('url').resolve;
 
-module.exports = function (uri, cb) {
-    if (/^\/\/[^\/]+\//.test(uri)) {
-        uri = window.location.protocol + uri;
-    }
-    else if (!/^https?:\/\//.test(uri)) {
-        uri = window.location.protocol + '//'
-            + window.location.host
-            + (/^\//.test(uri) ? uri : '/' + uri)
-        ;
-    }
+module.exports = function (u, cb) {
+    var uri = resolve(window.location.href, u);
     
     var stream = new Stream;
     stream.readable = true;

@@ -3,6 +3,7 @@ var shoe = require('../');
 var through = require('through');
 
 var server = http.createServer(function (req, res) {
+    res.statusCode = 404;
     res.end('not found\n');
 });
 server.listen(process.env.PORT);

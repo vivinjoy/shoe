@@ -12,7 +12,12 @@
     },
     "bundledDependencies" : [ "sockjs-client" ],
     "devDependencies" : {
-        "through": "~2.3.4"
+        "through": "~2.3.4",
+        "tape": "~1.0.4",
+        "testling": "~1.4.1"
+    },
+    "scripts": {
+        "test": "testling ."
     },
     "testling" : {
         "files": "test/browser.js",
