@@ -10,6 +10,7 @@
     "dependencies" : {
         "sockjs" : "0.3.7"
     },
+    "bundledDependencies" : [ "sockjs-client" ],
     "devDependencies" : {
         "through": "~2.3.4"
     },
