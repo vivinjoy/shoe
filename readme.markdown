@@ -27,16 +27,15 @@ them:
 
 ``` js
 var shoe = require('shoe');
-var es = require('event-stream');
+var through = require('through');
 
 var result = document.getElementById('result');
 
 var stream = shoe('/invert');
-var s = es.mapSync(function (msg) {
+stream.pipe(through(function (msg) {
     result.appendChild(document.createTextNode(msg));
-    return String(Number(msg)^1);
-});
-s.pipe(stream).pipe(s);
+    this.queue(String(Number(msg)^1));
+})).pipe(stream);
 ```
 
 Server code that hosts some static files and emits 0s and 1s:
