@@ -49,7 +49,6 @@ exports = module.exports = function (opts, cb) {
             };
         }
         server.installHandlers(httpServer, hopts);
-
         return server;
     };
     
