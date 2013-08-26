@@ -22,10 +22,9 @@ exports = module.exports = function (opts, cb) {
         cb(stream)
 
         function cleanup() {
+            stream.emit("close")
             if (stream.destroy) {
                 stream.destroy()
-            } else {
-                stream.emit("close")
             }
         }
     }
